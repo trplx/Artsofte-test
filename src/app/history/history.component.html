@@ -1,0 +1,29 @@
+<table class="transaction-history">
+
+	<thead>
+		<tr>
+			<th> № </th>
+			<th> Карта плательщика </th>
+			<th> Карта получателя </th>
+			<th> Сумма </th>
+			<th> Дата выполнения </th>
+			<th> Действие </th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr *ngFor="let transaction of transactions; let i = index;" data-id="{{ transaction.id }}">
+			<td> {{i+1}} </td>
+			<td> {{ transaction.cardnumberSenMask }} </td>
+			<td> {{ transaction.cardnumberRecMask }} </td>
+			<td> {{ transaction.sum }} </td>
+			<td> {{ transaction.transactionDate }} </td>
+			<td>
+				<a class="button" routerLink="/create/{{ transaction.id }}">Повторить</a>
+				<a class="button" href="#" (click)="delete($event);" attr.data-id="{{ transaction.id }}">Удалить</a> 
+			</td>
+		</tr>
+	</tbody>  
+
+</table>
+

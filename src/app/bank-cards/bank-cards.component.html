@@ -1,0 +1,61 @@
+<form (ngSubmit)="transfer(); transferForm.reset();" #transferForm>
+  <div class="cards">
+    <div class="card card_sender">
+      <h3 class="card__title">Карта плательщика</h3>
+      <div class="card__number">
+        <span class="card__subtitle">Номер</span>
+        <div class="card__number-container" [formGroup]="cardnumberSen">
+          <input formControlName="numSet1" maxlength="4">
+          <input formControlName="numSet2" maxlength="4">
+          <input formControlName="numSet3" maxlength="4">
+          <input formControlName="numSet4" maxlength="4">
+        </div>
+      </div>
+
+      <div class="card__info">
+        <div class="card__info-column">
+          <span class="card__subtitle">ФИО держателя</span>
+          <input [formControl]="cardholder">
+        </div>
+
+        <div class="card__info-column">
+          <div class="card__expiration-date" [formGroup]="expirationDate">
+
+            <span class="card__subtitle">Активна до:</span>
+
+            <select formControlName="month">
+              <option *ngFor="let month of months" [attr.selected]="selectValues.month === month ? true : null">
+                {{month}}
+              </option>
+            </select>
+
+            <select formControlName="year">
+              <option *ngFor="let year of years" [attr.selected]="selectValues.year === year ? true : null">
+                {{year}}
+              </option>
+            </select>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card_recipient">
+      <h3 class="card__title">Карта получателя</h3>
+      <div class="card__number">
+        <span class="card__number-title">Номер</span>
+        <div class="card__number-container" [formGroup]="cardnumberRec">
+          <input formControlName="numSet1" maxlength="4">
+          <input formControlName="numSet2" maxlength="4">
+          <input formControlName="numSet3" maxlength="4">
+          <input formControlName="numSet4" maxlength="4">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="transaction-sum">
+    <input [formControl]="sum" placeholder="Cумма">
+    <button type="submit" [disabled]="cardholder.invalid || cardnumberSen.invalid || cardnumberRec.invalid || sum.invalid">Перевести</button>
+  </div>
+</form>

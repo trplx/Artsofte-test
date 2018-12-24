@@ -1,0 +1,87 @@
+.cards
+    margin: 0 auto
+    color: #777
+    display: flex
+    justify-content: center
+.card
+    max-width: 380px
+    padding: 15px 15px 40px
+    box-shadow: 0px 5px 10px black
+    background-color: #ddd
+    border-radius: 10px
+    display: inline-block
+    vertical-align: top
+    margin-right: 20px
+.card__title
+    margin: 0 0 25px
+    text-align: center
+.card-subtitle
+    display: block
+    font-size: 12px
+.card__number
+    &-container
+        display: flex
+        justify-content: space-between
+        height: 30px
+        & input
+            display: inline-block
+            width: 20%
+            border: .5px solid #000
+            border-radius: 3px
+            flex: 1 1 auto        
+            margin-right: 10px
+            padding-left: 8px
+            line-height: 22px
+            &:last-child
+                margin-right: 0
+.card__info
+    display: flex
+    justify-content: space-between
+    margin-top: 28px
+    & input
+        border: .5px solid #000
+        border-radius: 3px
+        padding-left: 8px
+        line-height: 27px
+    &-column
+        flex: 1 1 auto
+        align-self: flex-end
+.card__expiration-date
+    display: inline-block
+    vertical-align: middle
+    & select
+        height: 30px
+        width: 60px
+        margin-right: 18px
+        padding-right: 8px
+        border: .5px solid
+        border-radius: 3px
+        &:last-child
+            margin-right: 0   
+.transaction-sum
+    text-align: center
+    margin-top: 40px
+    & input
+        width: 200px
+        border: .5px solid #000
+        border-radius: 3px        
+        margin-right: 10px
+        padding: 5px 10px
+        line-height: 22px
+    & button
+        cursor: pointer
+        background-color: #ddd
+        font-size: 1em
+        font-family: 'Roboto', sans-serif
+        font-weight: 300
+        color: #777
+        line-height: 24px
+        border: none
+        vertical-align: middle
+        padding: 5px 10px
+        border-radius: 3px
+        &:hover
+            color: #039be5
+            background-color: #cfc8cc
+input.ng-invalid
+    color: red
